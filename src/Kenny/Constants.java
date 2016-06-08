@@ -14,6 +14,6 @@ interface Constants
     int gameWidth = 400;
     int gameHeight = 450;
     int insets = 25;
-    int playerHeight = 420;
+    int playerHeight = 450;
 
 }

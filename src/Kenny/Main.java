@@ -29,6 +29,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import javafx.scene.shape.*;
 
 
 public class Main extends Application implements Constants
@@ -94,12 +95,15 @@ public class Main extends Application implements Constants
                 guy.incrementXPos(-2);
             if(inputHandler.isInStack(KeyCode.D) && (guy.getXPos() < gameWidth + 7))
                 guy.incrementXPos(2);
+
+            tempTick--;
+
             if(inputHandler.isInStack(KeyCode.SPACE))
             {
-                if(internalTick >= tempTick + 15)
+                if(tempTick <= 0)
                 {
                     shotsFired.add(new Bullet());
-                    tempTick = internalTick;
+                    tempTick = 15;
                     //check for max int
                 }
             }
@@ -120,18 +124,28 @@ public class Main extends Application implements Constants
             for(int x = 0; x < 10; x ++)
             {
 
-                for(int y = 0; y < 6; y++)
+                for (int y = 0; y < 6; y++)
                 {
-
-                    if()
+                    for (int i = shotsFired.size() - 1; i >= 0; i--)
                     {
-                        gc.drawImage(alienUp, aliens.getArmy()[x][y].getXPos(), aliens.getArmy()[x][y].getYPos());
+                        if (shotsFired.get(i).intersects(aliens))
+                            gc.drawImage(explosion, aliens.getArmy()[x][y].getXPos(), aliens.getArmy()[x][y].getYPos());
+
+                    }
+                    if (aliens.getArmy()[x][y] != null)
+                    {
+                        if (internalTick % 32 < 16)
+                        {
+                            gc.drawImage(alienUp, aliens.getArmy()[x][y].getXPos(), aliens.getArmy()[x][y].getYPos());
+                        }
+                        else
+                            gc.drawImage(alien, aliens.getArmy()[x][y].getXPos(), aliens.getArmy()[x][y].getYPos());
                     }
                     else
-                        gc.drawImage(alien, aliens.getArmy()[x][y].getXPos(), aliens.getArmy()[x][y].getYPos());
-
+                        gc.drawImage(explosion, aliens.getArmy()[x][y].getXPos(), aliens.getArmy()[x][y].getYPos());
                 }
             }
+
 
             gc.drawImage(player, guy.getXPos(), playerHeight);
 

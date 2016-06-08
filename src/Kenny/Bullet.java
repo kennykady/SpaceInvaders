@@ -31,4 +31,18 @@ public class Bullet implements Constants
     public int getyPosPlayer() {
         return yPosP;
     }
+
+    public boolean intersects(Alien a)
+    {
+        for(int x = 0; x < 10; x++)
+            for(int y = 0; y < 7; y++)
+            {
+                if((this.getyPosPlayer() >= a.getArmy()[x][y].getYPos() - 8))
+                {
+                    a.getArmy()[x][y] = null;
+                    return true;
+                }
+            }
+        return false;
+    }
 }

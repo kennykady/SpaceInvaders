@@ -91,7 +91,10 @@ public class Alien
 
     public void move()
     {
+        for(int x = 0; x < 10; x++)
+        {
 
+        }
     }
 
     public int getXPos() {
