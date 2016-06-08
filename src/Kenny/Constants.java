@@ -12,8 +12,8 @@ interface Constants
     int circleW = 30;
     int circleH = 30;
     int gameWidth = 400;
-    int gameHeight = 500;
+    int gameHeight = 450;
     int insets = 25;
-    int playerHeight = 350;
+    int playerHeight = 420;
 
 }

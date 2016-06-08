@@ -7,13 +7,14 @@ import javafx.scene.canvas.GraphicsContext;
  */
 public class Player implements Constants
 {
-    private int xPos = gameWidth/2, yPos= 350, lives;
+    private int xPos = gameWidth/2, yPos= 450, lives;
     private GraphicsContext gc;
 
     public Player(GraphicsContext gc)
     {
         this.gc = gc;
     }
+
     public Player()
     {
     }

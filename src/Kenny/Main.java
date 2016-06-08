@@ -49,16 +49,16 @@ public class Main extends Application implements Constants
     public void start(Stage primaryStage)
     {
         primaryStage.setTitle("S P A C E  I N V A D E R S");
-        Canvas canvas = new Canvas(450, 400);
+        Canvas canvas = new Canvas(450, 500);
         GraphicsContext gc = canvas.getGraphicsContext2D();
         StackPane root = new StackPane();
         root.getChildren().addAll(canvas);
-        Scene scene = new Scene(root, 450, 400);
+        Scene scene = new Scene(root, 450, 500);
         scene.setOnKeyPressed(this::KeyPressed);
         scene.setOnKeyReleased(this::onKeyReleased);
         primaryStage.setScene(scene);
-        gc.setFill(Color.INDIGO);
-        gc.fillRect(0 , 0, 450 , 400);
+        gc.setFill(Color.CRIMSON);
+        gc.fillRect(0 , 0, 500 , 500);
         primaryStage.show();
 
         try
@@ -122,12 +122,13 @@ public class Main extends Application implements Constants
 
                 for(int y = 0; y < 6; y++)
                 {
-                    if(internalTick % 16 == 0 || internalTick % 15 == 0 || internalTick % 17 == 0 || internalTick % 18 == 0)
+
+                    if()
                     {
                         gc.drawImage(alienUp, aliens.getArmy()[x][y].getXPos(), aliens.getArmy()[x][y].getYPos());
                     }
                     else
-                        gc.drawImage(alien, aliens.getArmy()[x][y].getXPos(),aliens.getArmy()[x][y].getYPos());
+                        gc.drawImage(alien, aliens.getArmy()[x][y].getXPos(), aliens.getArmy()[x][y].getYPos());
 
                 }
             }
